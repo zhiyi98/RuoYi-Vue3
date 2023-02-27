@@ -157,7 +157,23 @@ export const dynamicRoutes = [
         meta: { title: '修改生成配置', activeMenu: '/tool/gen' }
       }
     ]
+  },
+  {
+    path: '/eboard/story',
+    component: Layout,
+    hidden: true,
+    permissions: ['eboard:story:query'],
+    children: [
+      {
+        path: 'index/:storyId(\\d+)',
+        component: () => import('@/views/eboard/story/index'),
+        name: 'story',
+        meta: { title: '故事页', activeMenu: '/eboard/explore' }
+      }
+    ]
   }
+
+
 ]
 
 const router = createRouter({
